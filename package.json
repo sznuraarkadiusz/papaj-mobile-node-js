@@ -1,0 +1,11 @@
+{
+  "name": "papaj-mobile-node-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sznuraarkadiusz/papaj-mobile-node-js.git",
+  "author": "Arkadiusz Sznura, Kajetan Kaźmierczak, Marcin Rosochacki, Kacper Adamczak",
+  "license": "MIT",
+  "scripts": {
+    "be-dev": "node src/backend/index.js"
+  }
+}
