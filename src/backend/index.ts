@@ -4,7 +4,7 @@ import { config } from "./config";
 import { prisma } from "./database";
 
 async function main() {
-    await startServer(config.server);
+    startServer(config.server);
 }
 
 main()
