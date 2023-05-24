@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="00579237-9897-4343-8d0c-eae31da0bd1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="00579237-9897-4343-8d0c-eae31da0bd1b" name="Changes" comment="poprawa uwagi sonara">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -36,10 +39,16 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/arkadiuszsznura/Desktop/Projects/papaj-mobile-node-js&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/kacperadamczak/Documents/Studia/semestr6/projektowanie_aplikacji_internetowych/papaj-mobile-node-js/node_modules/prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/kacperadamczak/Documents/Studia/semestr6/projektowanie_aplikacji_internetowych/papaj-mobile-node-js/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -57,7 +66,93 @@
       <workItem from="1684868352957" duration="3530000" />
       <workItem from="1684872069978" duration="2648000" />
       <workItem from="1684874724309" duration="92000" />
+      <workItem from="1684912317438" duration="92000" />
     </task>
+    <task id="LOCAL-00001" summary="zmiana linku do repo">
+      <created>1684876638563</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684876638563</updated>
+    </task>
+    <task id="LOCAL-00002" summary="zmiana linku do repo">
+      <created>1684876797641</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684876797641</updated>
+    </task>
+    <task id="LOCAL-00003" summary="konfiguracja serwera">
+      <created>1684877718074</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684877718074</updated>
+    </task>
+    <task id="LOCAL-00004" summary="szkielet index.ts">
+      <created>1684877752824</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684877752824</updated>
+    </task>
+    <task id="LOCAL-00005" summary="status aplikacji i początek routes">
+      <created>1684879814324</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684879814324</updated>
+    </task>
+    <task id="LOCAL-00006" summary="zmiana w prettier - tylko podwójne nawiasy">
+      <created>1684880478499</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684880478499</updated>
+    </task>
+    <task id="LOCAL-00007" summary="dodatkowe paczki - express cors helmet">
+      <created>1684880656614</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684880656614</updated>
+    </task>
+    <task id="LOCAL-00008" summary="dodatkowe paczki - prisma">
+      <created>1684882217971</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684882217971</updated>
+    </task>
+    <task id="LOCAL-00009" summary="schemat bazy danych">
+      <created>1684882251747</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684882251747</updated>
+    </task>
+    <task id="LOCAL-00010" summary="pierwsza migracja">
+      <created>1684882269572</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684882269572</updated>
+    </task>
+    <task id="LOCAL-00011" summary="podłączenie bazy i implementacja rozłączenia w momencie wyłączenia aplikacji">
+      <created>1684882341990</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684882341990</updated>
+    </task>
+    <task id="LOCAL-00012" summary="poprawa uwagi sonara">
+      <created>1684882450932</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684882450932</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,5 +168,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="zmiana linku do repo" />
+    <MESSAGE value="konfiguracja serwera" />
+    <MESSAGE value="szkielet index.ts" />
+    <MESSAGE value="status aplikacji i początek routes" />
+    <MESSAGE value="zmiana w prettier - tylko podwójne nawiasy" />
+    <MESSAGE value="dodatkowe paczki - express cors helmet" />
+    <MESSAGE value="dodatkowe paczki - prisma" />
+    <MESSAGE value="schemat bazy danych" />
+    <MESSAGE value="pierwsza migracja" />
+    <MESSAGE value="podłączenie bazy i implementacja rozłączenia w momencie wyłączenia aplikacji" />
+    <MESSAGE value="poprawa uwagi sonara" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawa uwagi sonara" />
   </component>
 </project>
