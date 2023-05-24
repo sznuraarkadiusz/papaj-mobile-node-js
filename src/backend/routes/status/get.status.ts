@@ -1,5 +1,4 @@
-import { RequestHandler } from "express";
-
+import { RequestHandler } from 'express'
 export const getStatus: RequestHandler = (req, res) => {
-    res.send("Server is working!");
-};
+    res.send(`I'm alive!`)
+}
