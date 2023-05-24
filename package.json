@@ -1,14 +1,45 @@
 {
   "name": "papaj-mobile-node-js",
   "version": "1.0.0",
+  "description": "Rental car application",
   "main": "index.js",
   "repository": "https://github.com/sznuraarkadiusz/papaj-mobile-node-js.git",
-  "author": "Arkadiusz Sznura, Kajetan Kaźmierczak, Marcin Rosochacki, Kacper Adamczak",
+  "authors": [
+    "Arkadiusz Sznura <asznura@edu.cdv.pl>",
+    "Marcin Rosochacki <mrosochacki@edu.cdv.pl>",
+    "Kajetan Kaźmierczak <kkazmierczak@edu.cdv.pl>",
+    "Kacper Adamczak <kadamczak2@edu.cdv.pl>"
+  ],
   "license": "MIT",
-  "scripts": {
-    "be-dev": "node src/backend/index.js"
+  "private": true,
+  "devDependencies": {
+    "@eslint/create-config": "^0.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.7",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@prisma/client": "^4.14.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^7.0.0",
+    "prisma": "^4.14.1",
     "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "be-start": "node dist/backend/index.js",
+    "be-build": "tsc -p tsconfig.json",
+    "be-dev": "npx nodemon src/backend/index.ts"
   }
 }

@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00579237-9897-4343-8d0c-eae31da0bd1b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230523224102_init/migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/papaj-mobile.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/papaj-mobile.db-journal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/database.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/status/get.status.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +90,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/backend/index.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

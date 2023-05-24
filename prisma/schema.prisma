@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String
+  surname   String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime @default(now())
+}
+
+model Car {
+  id                Int      @id @default(autoincrement())
+  brand             String
+  model             String
+  color             String
+  productionYear    Int
+  price             Float
+  status            String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deletedAt         DateTime @default(now())
+}
+
+model Rent {
+  id                Int      @id @default(autoincrement())
+  customerId        Int
+  carId             Int
+  price             Float
+  rentDate          DateTime
+  returnDate        DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deletedAt         DateTime @default(now())
+}
+
+model Customer {
+  id                        Int      @id @default(autoincrement())
+  name                      String
+  surname                   String
+  address                   String
+  email                     String   @unique
+  password                  String
+  phone                     String
+  costumerCareEmployeeId    Int
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+  deletedAt                 DateTime @default(now())
+}
+
+model Reservation {
+  id                        Int      @id @default(autoincrement())
+  customerId                Int
+  carId                     Int
+  reservationDate           DateTime
+  reservationReturnDate     DateTime
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+  deletedAt                 DateTime @default(now())
+}
