@@ -1,7 +1,7 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 import { StatusCodes, ReasonPhrases } from "http-status-codes";
 
-export type TPrismaErrorDescription = {
+export type TPrismaErrorDescriptions = {
     uniqueConstraintFailed?: string;
 };
 
@@ -19,7 +19,7 @@ const getPrismaErrorReason = (message?: string): TPrismaErrorResponse => {
 
 export const checkPrismaError = (
     err: unknown,
-    messages?: TPrismaErrorDescription,
+    messages?: TPrismaErrorDescriptions,
 ): TPrismaErrorResponse => {
     const response = {
         statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
