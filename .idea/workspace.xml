@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00579237-9897-4343-8d0c-eae31da0bd1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/backend/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +39,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/arkadiuszsznura/Desktop/Projects/papaj-mobile-node-js&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -65,7 +63,12 @@
       <workItem from="1684872069978" duration="2648000" />
       <workItem from="1684874724309" duration="1356000" />
       <workItem from="1684876085068" duration="10000" />
-      <workItem from="1684876104513" duration="460000" />
+      <workItem from="1684876104513" duration="1891000" />
+      <workItem from="1684878374324" duration="544000" />
+      <workItem from="1684937689709" duration="170000" />
+      <workItem from="1684937868331" duration="2000" />
+      <workItem from="1684937886741" duration="616000" />
+      <workItem from="1684938506164" duration="456000" />
     </task>
     <servers />
   </component>
