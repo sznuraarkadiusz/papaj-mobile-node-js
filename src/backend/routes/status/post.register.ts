@@ -4,7 +4,7 @@ import { open } from "sqlite";
 
 async function openDatabase() {
     return open({
-        filename: "database.sqlite",
+        filename: "database",
         driver: sqlite3.Database,
     });
 }
