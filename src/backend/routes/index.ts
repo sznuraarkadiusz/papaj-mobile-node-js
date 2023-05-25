@@ -1,6 +1,8 @@
 import express from "express";
 import { getStatus } from "./status/get.status";
 import { register } from "./status/post.register";
+import { login } from "./status/post.login";
+
 const router = express.Router();
 // middleware
 router.use((req, res, next) => {
@@ -14,4 +16,5 @@ router.get("/", (req, res) => {
 // api route
 router.get("/api/status", getStatus);
 router.post("/api/register", register);
+router.post("/api/login", login);
 export default router;

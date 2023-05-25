@@ -39,6 +39,12 @@ export const startServer = async ({
     // Close the database connection
     await db.close();
 
+    app.use((req, res, next) => {
+        console.log(`Received ${req.method} request to ${req.url}`);
+        console.log("Request body:", req.body);
+        next();
+    });
+
     app.use(router);
 
     app.listen(port, () => {
