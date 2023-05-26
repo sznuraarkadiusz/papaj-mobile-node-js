@@ -1,13 +1,12 @@
 import express from "express";
-import { getStatus } from "./status/get.status";
+import getStatus from "./status/get.status";
 
 const router = express.Router();
 
-router.use((req, res, next) => {
-    console.log("Time: ", Date.now());
-    next();
-});
+const apiRoutes = [getStatus];
 
-router.get("/api/status", getStatus);
+apiRoutes.forEach((route) =>
+    router[route.method](route.path, route.validators, route.handler),
+);
 
 export default router;
