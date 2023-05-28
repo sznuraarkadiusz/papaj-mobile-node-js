@@ -10,17 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Employee {
-  id        Int      @id @default(autoincrement())
-  name      String
-  surname   String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime @default(now())
-}
-
 model Car {
   id                Int      @id @default(autoincrement())
   brand             String
@@ -28,7 +17,9 @@ model Car {
   color             String
   productionYear    Int
   price             Float
-  status            String
+  isAvailable       Boolean   @default(true)
+  reservations      Reservation[]
+  rents             Rent[]
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   deletedAt         DateTime @default(now())
@@ -37,6 +28,7 @@ model Car {
 model Rent {
   id                Int      @id @default(autoincrement())
   customerId        Int
+  car               Car     @relation(fields: [carId], references: [id])
   carId             Int
   price             Float
   rentDate          DateTime
@@ -46,7 +38,7 @@ model Rent {
   deletedAt         DateTime @default(now())
 }
 
-model Customer {
+model User {
   id                        Int      @id @default(autoincrement())
   name                      String
   surname                   String
@@ -54,15 +46,18 @@ model Customer {
   email                     String   @unique
   password                  String
   phone                     String
-  costumerCareEmployeeId    Int
+  isAdmin                   Boolean  @default(false)
+  reservations              Reservation[]
   createdAt                 DateTime @default(now())
   updatedAt                 DateTime @updatedAt
   deletedAt                 DateTime @default(now())
 }
 
 model Reservation {
-  id                        Int      @id @default(autoincrement())
-  customerId                Int
+  reservationId             Int      @id @default(autoincrement())
+  reservedBy                User     @relation(fields: [userId], references: [id])
+  userId                    Int
+  car                       Car      @relation(fields: [carId], references: [id])
   carId                     Int
   reservationDate           DateTime
   reservationReturnDate     DateTime
