@@ -11,16 +11,16 @@ const SALT = (process.env.PASSWORD_SALT as string) ?? "XYZ";
 const SECRET = (process.env.PASSWORD_SECRET as string) ?? "XYZ";
 
 const registrationValidators = [
-    body("name").notEmpty(),
+    body("name").not().isEmpty(),
     body("email").isEmail(),
-    body("password").notEmpty(),
+    body("password").not().isEmpty(),
 ];
 
 const registrationHandler = async (req: Request, res: Response) =>
     handleRequest({
         req,
         res,
-        responseSuccessStatus: StatusCodes.OK,
+        responseSuccessStatus: StatusCodes.CREATED,
         responseFailStatus: StatusCodes.BAD_REQUEST,
         execute: async () => {
             const { name, surname, email, password } = req.body;
