@@ -45,7 +45,7 @@ model User {
   address                   String?
   email                     String   @unique
   password                  String
-  phone                     String?
+  phone                     String
   isAdmin                   Boolean  @default(false)
   reservations              Reservation[]
   createdAt                 DateTime @default(now())
