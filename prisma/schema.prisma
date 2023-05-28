@@ -28,7 +28,7 @@ model Car {
 model Rent {
   id                Int      @id @default(autoincrement())
   customerId        Int
-  car               Car     @relation(fields: [carId], references: [id])
+  car               Car      @relation(fields: [carId], references: [id])
   carId             Int
   price             Float
   rentDate          DateTime
@@ -42,10 +42,10 @@ model User {
   id                        Int      @id @default(autoincrement())
   name                      String
   surname                   String
-  address                   String
+  address                   String?
   email                     String   @unique
   password                  String
-  phone                     String
+  phone                     String?
   isAdmin                   Boolean  @default(false)
   reservations              Reservation[]
   createdAt                 DateTime @default(now())
