@@ -23,7 +23,7 @@ const registrationHandler = async (req: Request, res: Response) =>
         responseSuccessStatus: StatusCodes.CREATED,
         responseFailStatus: StatusCodes.BAD_REQUEST,
         execute: async () => {
-            const { name, surname, email, password } = req.body;
+            const { name, surname, email, password, phone } = req.body;
             const passwordHash = createHash(password, SALT);
             const existingUser = await prisma.user.findFirst({
                 where: { email },
@@ -43,6 +43,7 @@ const registrationHandler = async (req: Request, res: Response) =>
                     surname,
                     email,
                     password: passwordHash,
+                    phone,
                 },
             });
             return {
