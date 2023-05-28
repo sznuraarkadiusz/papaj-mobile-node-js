@@ -10,10 +10,15 @@ import { createToken } from "../../utils/jwt.utils";
 const SALT = (process.env.PASSWORD_SALT as string) ?? "XYZ";
 const SECRET = (process.env.PASSWORD_SECRET as string) ?? "XYZ";
 
+const loginValidators = [
+    body("email").isEmail(),
+    body("password").not().isEmpty(),
+];
+
 export default {
     method: "get",
     path: "/api/login",
-    validators: [body("email").isEmail(), body("password").not().isEmpty()],
+    validators: loginValidators,
     handler: async (req: Request, res: Response) =>
         handleRequest({
             req,
