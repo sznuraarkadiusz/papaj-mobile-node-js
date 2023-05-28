@@ -25,7 +25,7 @@ const registrationHandler = async (req: Request, res: Response) =>
         execute: async () => {
             const { name, surname, email, password } = req.body;
             const passwordHash = createHash(password, SALT);
-            const existingUser = await prisma.employee.findFirst({
+            const existingUser = await prisma.user.findFirst({
                 where: { email },
             });
 
@@ -37,7 +37,7 @@ const registrationHandler = async (req: Request, res: Response) =>
                 } as TCustomError;
             }
 
-            const newUser = await prisma.employee.create({
+            const newUser = await prisma.user.create({
                 data: {
                     name,
                     surname,
