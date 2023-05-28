@@ -15,7 +15,8 @@ const editCarHandler = async (req: Request, res: Response) =>
         responseSuccessStatus: StatusCodes.OK,
         responseFailStatus: StatusCodes.BAD_REQUEST,
         execute: async () => {
-            const { brand, model, color, productionYear, price } = req.body;
+            const { brand, model, color, productionYear, price, isAvailable } =
+                req.body;
             const carId = Number(req.params.id);
             const existingCar = await prisma.car.findUnique({
                 where: { id: carId },
@@ -31,7 +32,14 @@ const editCarHandler = async (req: Request, res: Response) =>
 
             const updatedCar = await prisma.car.update({
                 where: { id: carId },
-                data: { brand, model, color, productionYear, price },
+                data: {
+                    brand,
+                    model,
+                    color,
+                    productionYear,
+                    price,
+                    isAvailable,
+                },
             });
 
             return updatedCar;
