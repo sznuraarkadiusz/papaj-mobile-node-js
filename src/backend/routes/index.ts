@@ -3,10 +3,19 @@ import getStatus from "./status/get.status";
 import loginUser from "./user/login.user";
 import registerUser from "./user/register.user";
 import addCar from "./car/add.car";
+import deleteCar from "./car/delete.car";
+import editCar from "./car/edit.car";
 
 const router = express.Router();
 
-const apiRoutes = [getStatus, loginUser, registerUser, addCar];
+const apiRoutes = [
+    getStatus,
+    loginUser,
+    registerUser,
+    addCar,
+    deleteCar,
+    editCar,
+];
 
 apiRoutes.forEach((route) =>
     router[route.method](route.path, route.validators, route.handler),
