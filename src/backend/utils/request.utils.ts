@@ -36,9 +36,10 @@ export const handleRequest = async <Entity>({
 
     try {
         const result = await execute();
-        res.status(responseSuccessStatus ?? StatusCodes.OK).json({
-            data: result,
-        });
+        const response: { data?: unknown; count?: number } = {};
+        if (Array.isArray(result)) response.count = result.length;
+        response.data = result;
+        res.status(responseSuccessStatus ?? StatusCodes.OK).json(response);
     } catch (err) {
         console.log(err);
         const parsedError = err as TCustomError;

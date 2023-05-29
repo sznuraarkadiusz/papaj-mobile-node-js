@@ -1,7 +1,8 @@
 import express from "express";
-import cors, { CorsOptions } from "cors";
+import cors from "cors";
 import helmet from "helmet";
 import limit from "express-rate-limit";
+import { CorsOptions } from "cors";
 import router from "./routes";
 
 export type TServerConfig = {
