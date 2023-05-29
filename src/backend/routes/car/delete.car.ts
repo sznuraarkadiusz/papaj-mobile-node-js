@@ -4,9 +4,13 @@ import { StatusCodes } from "http-status-codes";
 import { prisma } from "../../database";
 import { TRoute } from "../types";
 import { handleRequest, TCustomError } from "../../utils/request.utils";
-import { authorize } from "../../utils/middleware.utils";
+import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
 
-const removeCarValidators = [authorize, param("id").isInt({ min: 1 })];
+const removeCarValidators = [
+    authorize,
+    isAdminMiddleware,
+    param("id").isInt({ min: 1 }),
+];
 
 const removeCarHandler = async (req: Request, res: Response) =>
     handleRequest({

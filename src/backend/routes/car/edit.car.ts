@@ -1,12 +1,16 @@
-import { Response, Request } from "express";
+import { Request, Response } from "express";
 import { param } from "express-validator";
 import { StatusCodes } from "http-status-codes";
 import { prisma } from "../../database";
 import { TRoute } from "../types";
 import { handleRequest, TCustomError } from "../../utils/request.utils";
-import { authorize } from "../../utils/middleware.utils";
+import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
 
-const editCarValidators = [authorize, param("id").isInt({ min: 1 })];
+const editCarValidators = [
+    authorize,
+    isAdminMiddleware,
+    param("id").isInt({ min: 1 }),
+];
 
 const editCarHandler = async (req: Request, res: Response) =>
     handleRequest({
