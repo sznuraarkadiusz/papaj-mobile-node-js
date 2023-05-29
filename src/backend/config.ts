@@ -7,7 +7,7 @@ export type TConfig = {
     server: TServerConfig;
 };
 
-const env = (process.env.NOde_ENV || "production") as TEvn;
+const env = (process.env.NODE_ENV || "production") as TEvn;
 const API_PORT = 3000;
 
 export const config: TConfig = {
@@ -15,7 +15,7 @@ export const config: TConfig = {
     server: {
         port: API_PORT,
         corsOptions:
-            env == "development" ? { origin: "localhost:" + API_PORT } : {},
+            env === "development" ? { origin: "localhost:" + API_PORT } : {},
         limiter: {
             time: 15 * 60 * 1000,
             max: 250,
