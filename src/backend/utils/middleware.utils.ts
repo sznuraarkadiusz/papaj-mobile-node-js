@@ -11,7 +11,7 @@ export const authorize = (req: Request, res: Response, next: NextFunction) => {
     const result = verifyToken(parsedToken ?? "", SECRET);
 
     if (!token || !result.isValid) {
-        return res.status(StatusCodes.UNAUTHORIZED).json({
+        res.sendStatus(StatusCodes.UNAUTHORIZED).json({
             errors: [ReasonPhrases.UNAUTHORIZED],
         });
     } else {
