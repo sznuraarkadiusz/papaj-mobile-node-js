@@ -55,8 +55,6 @@ const removeCarHandler = async (req: Request, res: Response) =>
             await prisma.car.delete({
                 where: { id: carId },
             });
-
-            return null;
         },
     });
 
