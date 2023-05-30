@@ -23,11 +23,31 @@ const removeCarHandler = async (req: Request, res: Response) =>
             const existingCar = await prisma.car.findUnique({
                 where: { id: carId },
             });
+            const reservationId = await prisma.reservation.findFirst({
+                where: { carId: carId },
+            });
+            const rentId = await prisma.rent.findFirst({
+                where: { carId: carId },
+            });
 
             if (!existingCar) {
                 throw {
                     status: StatusCodes.NOT_FOUND,
                     message: "Nie znaleziono samochodu o podanym id",
+                    isCustomError: true,
+                } as TCustomError;
+            } else if (reservationId) {
+                throw {
+                    status: StatusCodes.BAD_REQUEST,
+                    message:
+                        "Nie można usunąć samochodu, który jest aktualnie zarezerwowany",
+                    isCustomError: true,
+                } as TCustomError;
+            } else if (rentId) {
+                throw {
+                    status: StatusCodes.BAD_REQUEST,
+                    message:
+                        "Nie można usunąć samochodu, który jest aktualnie wypożyczony",
                     isCustomError: true,
                 } as TCustomError;
             }
