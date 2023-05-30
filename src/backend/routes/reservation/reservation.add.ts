@@ -3,12 +3,9 @@ import { body } from "express-validator";
 import { StatusCodes } from "http-status-codes";
 import { prisma } from "../../database";
 import { TRoute } from "../types";
-import { handleRequest } from "../../utils/request.utils";
-import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
+import { handleRequest, TCustomError } from "../../utils/request.utils";
 
 const addReservationValidators = [
-    authorize,
-    isAdminMiddleware,
     body("reservationDate").not().isEmpty(),
     body("reservationReturnDate").not().isEmpty(),
     body("userId").not().isEmpty(),
@@ -32,6 +29,23 @@ const addReservationHandler = async (req: Request, res: Response) =>
                     reservationReturnDate,
                 },
             });
+            const carAvailibility = await prisma.car.findFirst({
+                where: { id: carId },
+            });
+
+            if (!carAvailibility?.isAvailable) {
+                throw {
+                    status: StatusCodes.BAD_REQUEST,
+                    message: "Wybrany samochód jest niedostępny",
+                    isCustomError: true,
+                } as TCustomError;
+            } else {
+                await prisma.car.update({
+                    where: { id: carId },
+                    data: { isAvailable: false },
+                });
+            }
+
             return {
                 reservation,
             };
