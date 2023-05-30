@@ -2,11 +2,11 @@ import express from "express";
 import getStatus from "./status/get.status";
 import loginUser from "./user/login.user";
 import registerUser from "./user/register.user";
-import addCar from "./car/add.car";
-import deleteCar from "./car/delete.car";
-import editCar from "./car/edit.car";
-import listCar from "./car/list.car";
-import reservationsList from "./reservation/reservations.list";
+import addCar from "./car/car.add";
+import deleteCar from "./car/car.delete";
+import editCar from "./car/car.edit";
+import listCar from "./car/car.list";
+import reservationsList from "./reservation/reservation.list";
 
 const router = express.Router();
 

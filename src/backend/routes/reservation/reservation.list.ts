@@ -11,9 +11,9 @@ const getReservationListHandler = async (req: Request, res: Response) =>
         responseSuccessStatus: StatusCodes.OK,
         responseFailStatus: StatusCodes.BAD_REQUEST,
         execute: async () => {
-            const carList = await prisma.reservation.findMany();
+            const reservationList = await prisma.reservation.findMany();
             return {
-                carList,
+                reservationList,
             };
         },
     });
