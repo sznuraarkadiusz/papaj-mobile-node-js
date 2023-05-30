@@ -5,6 +5,7 @@ import registerUser from "./user/register.user";
 import addCar from "./car/add.car";
 import deleteCar from "./car/delete.car";
 import editCar from "./car/edit.car";
+import listCar from "./car/list.car";
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ const apiRoutes = [
     addCar,
     deleteCar,
     editCar,
+    listCar,
 ];
 
 apiRoutes.forEach((route) =>
