@@ -52,7 +52,7 @@ const editCarHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "put",
-    path: "/api/car/add",
+    path: "/api/car/edit/:id",
     validators: editCarValidators,
     handler: editCarHandler,
 } as TRoute;
