@@ -8,7 +8,7 @@ import { createHash } from "../../utils/hash.utils";
 import { createToken } from "../../utils/jwt.utils";
 
 const SALT = (process.env.PASSWORD_SALT as string) ?? "XYZ";
-const SECRET = (process.env.PASSWORD_SECRET as string) ?? "XYZ";
+const SECRET = (process.env.TOKEN_SECRET as string) ?? "XYZ";
 
 const loginValidators = [
     body("email").isEmail(),
@@ -34,13 +34,14 @@ export default {
                 const passwordValid = user
                     ? user.password === passwordHash
                     : false;
-                if (!user || !passwordValid)
+                if (!user || !passwordValid) {
+                    console.warn("Niepoprawny login lub hasło");
                     throw {
                         status: StatusCodes.UNAUTHORIZED,
                         message: ReasonPhrases.UNAUTHORIZED,
                         isCustomError: true,
                     } as TCustomError;
-
+                }
                 return {
                     token: createToken(user, SECRET, "7d"),
                 };
