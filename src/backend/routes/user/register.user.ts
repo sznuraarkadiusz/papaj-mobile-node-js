@@ -12,10 +12,15 @@ const SECRET = (process.env.PASSWORD_SECRET as string) ?? "XYZ";
 
 const registrationValidators = [
     body("name").not().isEmpty(),
+    body("name").isString(),
     body("surname").not().isEmpty(),
+    body("surname").isString(),
     body("email").isEmail(),
+    body("email").not().isEmpty(),
     body("password").not().isEmpty(),
+    body("password").isString(),
     body("phone").not().isEmpty(),
+    body("phone").isString(),
 ];
 
 const registrationHandler = async (req: Request, res: Response) =>
