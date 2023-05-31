@@ -30,11 +30,15 @@ const deleteReservationHandler = async (req: Request, res: Response) =>
                     message: "Nie znaleziono rezerwacji o podanym id.",
                     isCustomError: true,
                 } as TCustomError;
+            } else {
+                await prisma.car.update({
+                    where: { id: existingReservation.carId },
+                    data: { isAvailable: true },
+                });
+                await prisma.reservation.delete({
+                    where: { reservationId: reservationId },
+                });
             }
-
-            await prisma.reservation.delete({
-                where: { reservationId: reservationId },
-            });
         },
     });
 
