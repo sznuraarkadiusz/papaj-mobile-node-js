@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4dd2b2ce-98ed-4f96-83b1-ff45c43ffe63" name="Changes" comment="">
+    <list default="true" id="fdb652c3-c0ad-40d0-ab4c-00450ec895d5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/status/get.cars.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/status/get.user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/status/post.logout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/status/post.reservations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database" beforeDir="false" afterPath="$PROJECT_DIR$/database" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/routes/status/post.login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/routes/status/post.login.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +21,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -20,74 +28,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectId" id="2QCduWueYoCbbehSVdRcx5kwuNJ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="false" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/arkadiuszsznura/Desktop/Projects/papaj-mobile-node-js",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/arkadiuszsznura/Desktop/Projects/papaj-mobile-node-js/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/arkadiuszsznura/Desktop/Projects/papaj-mobile-node-js/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/backend" />
-    </key>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="00579237-9897-4343-8d0c-eae31da0bd1b" name="Changes" comment="" />
-      <created>1684861719400</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1684861719400</updated>
-      <workItem from="1684861721227" duration="1630000" />
-      <workItem from="1684864101130" duration="564000" />
-      <workItem from="1684864675215" duration="1123000" />
-      <workItem from="1684868352957" duration="3530000" />
-      <workItem from="1684872069978" duration="2648000" />
-      <workItem from="1684874724309" duration="1356000" />
-      <workItem from="1684876085068" duration="10000" />
-      <workItem from="1684876104513" duration="1891000" />
-      <workItem from="1684878374324" duration="544000" />
-      <workItem from="1684937689709" duration="170000" />
-      <workItem from="1684937868331" duration="2000" />
-      <workItem from="1684937886741" duration="616000" />
-      <workItem from="1684938506164" duration="456000" />
-      <workItem from="1685041354465" duration="6621000" />
-      <workItem from="1685127434609" duration="1584000" />
-      <workItem from="1685371407034" duration="804000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/src/backend/index.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
