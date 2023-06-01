@@ -44,7 +44,7 @@ const editReservationHandler = async (req: Request, res: Response) =>
                 },
             });
 
-            return updatedReservation;
+            return { updatedReservation };
         },
     });
 
