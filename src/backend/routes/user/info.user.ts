@@ -32,7 +32,7 @@ const getUserInfoHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "get",
-    path: "/api/user/info/:id",
+    path: "/api/user/:id",
     validators: getUserInfoValidators,
     handler: getUserInfoHandler,
 } as TRoute;
