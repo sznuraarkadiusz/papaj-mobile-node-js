@@ -6,13 +6,13 @@ import { TRoute } from "../types";
 import { handleRequest, TCustomError } from "../../utils/request.utils";
 import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
 
-const removeCarValidators = [
+const deleteCarValidators = [
     authorize,
     isAdminMiddleware,
     param("id").isInt({ min: 1 }),
 ];
 
-const removeCarHandler = async (req: Request, res: Response) =>
+const deleteCarHandler = async (req: Request, res: Response) =>
     handleRequest({
         req,
         res,
@@ -61,6 +61,6 @@ const removeCarHandler = async (req: Request, res: Response) =>
 export default {
     method: "delete",
     path: "/api/car/delete/:id",
-    validators: removeCarValidators,
-    handler: removeCarHandler,
+    validators: deleteCarValidators,
+    handler: deleteCarHandler,
 } as TRoute;
