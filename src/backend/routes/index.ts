@@ -9,11 +9,14 @@ import listCar from "./car/list.car";
 import reservationList from "./reservation/reservation.list";
 import reservationAdd from "./reservation/reservation.add";
 import reservationDelete from "./reservation/reservation.delete";
+import reservationEdit from "./reservation/reservation.edit";
+import userInfo from "./user/info.user";
 
 const router = express.Router();
 
 const apiRoutes = [
     getStatus,
+    userInfo,
     loginUser,
     registerUser,
     addCar,
@@ -22,7 +25,7 @@ const apiRoutes = [
     listCar,
     reservationAdd,
     reservationDelete,
-    // reservationEdit,
+    reservationEdit,
     reservationList,
 ];
 
