@@ -1,0 +1,20 @@
+-- RedefineTables
+PRAGMA foreign_keys=OFF;
+CREATE TABLE "new_Rent" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "customerId" INTEGER NOT NULL,
+    "carId" INTEGER NOT NULL,
+    "price" REAL NOT NULL,
+    "rentDate" DATETIME NOT NULL,
+    "returnDate" DATETIME NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "deletedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Rent_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Rent_carId_fkey" FOREIGN KEY ("carId") REFERENCES "Car" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+INSERT INTO "new_Rent" ("carId", "createdAt", "customerId", "deletedAt", "id", "price", "rentDate", "returnDate", "updatedAt") SELECT "carId", "createdAt", "customerId", "deletedAt", "id", "price", "rentDate", "returnDate", "updatedAt" FROM "Rent";
+DROP TABLE "Rent";
+ALTER TABLE "new_Rent" RENAME TO "Rent";
+PRAGMA foreign_key_check;
+PRAGMA foreign_keys=ON;
