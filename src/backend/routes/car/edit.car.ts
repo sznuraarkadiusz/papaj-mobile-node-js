@@ -46,7 +46,7 @@ const editCarHandler = async (req: Request, res: Response) =>
                 },
             });
 
-            return updatedCar;
+            return { updatedCar };
         },
     });
 
