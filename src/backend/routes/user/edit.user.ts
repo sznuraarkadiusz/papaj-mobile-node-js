@@ -5,6 +5,9 @@ import { prisma } from "../../database";
 import { TRoute } from "../types";
 import { handleRequest, TCustomError } from "../../utils/request.utils";
 import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
+import { createHash } from "../../utils/hash.utils";
+
+const SALT = (process.env.SALT as string) ?? "XYZ";
 
 const editUserValidators = [
     authorize,
@@ -22,11 +25,13 @@ const editUserHandler = async (req: Request, res: Response) =>
             const { name, surname, address, email, password, phone, isAdmin } =
                 req.body;
             const userId = Number(req.params.id);
-            const existingReservation = await prisma.user.findUnique({
+            const existingUser = await prisma.user.findUnique({
                 where: { id: userId },
             });
 
-            if (!existingReservation) {
+            const passwordHash = createHash(password, SALT);
+
+            if (!existingUser) {
                 throw {
                     isCustomError: true,
                     status: StatusCodes.NOT_FOUND,
@@ -42,7 +47,7 @@ const editUserHandler = async (req: Request, res: Response) =>
                     address,
                     email,
                     isAdmin,
-                    password,
+                    password: passwordHash,
                     phone,
                 },
             });

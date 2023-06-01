@@ -13,6 +13,7 @@ import reservationEdit from "./reservation/edit.reservation";
 import reservationInfo from "./reservation/info.reservation";
 import userInfo from "./user/info.user";
 import getCarInfo from "./car/info.car";
+import editUser from "./user/edit.user";
 
 const router = express.Router();
 
@@ -20,6 +21,7 @@ const apiRoutes = [
     getStatus,
     userInfo,
     loginUser,
+    editUser,
     registerUser,
     addCar,
     deleteCar,
