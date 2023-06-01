@@ -6,11 +6,13 @@ import addCar from "./car/add.car";
 import deleteCar from "./car/delete.car";
 import editCar from "./car/edit.car";
 import listCar from "./car/list.car";
-import reservationList from "./reservation/reservation.list";
-import reservationAdd from "./reservation/reservation.add";
-import reservationDelete from "./reservation/reservation.delete";
-import reservationEdit from "./reservation/reservation.edit";
+import reservationList from "./reservation/list.reservation";
+import reservationAdd from "./reservation/add.reservation";
+import reservationDelete from "./reservation/delete.reservation";
+import reservationEdit from "./reservation/edit.reservation";
+import reservationInfo from "./reservation/info.reservation";
 import userInfo from "./user/info.user";
+import infoCar from "./car/info.car";
 
 const router = express.Router();
 
@@ -23,10 +25,12 @@ const apiRoutes = [
     deleteCar,
     editCar,
     listCar,
+    infoCar,
     reservationAdd,
     reservationDelete,
     reservationEdit,
     reservationList,
+    reservationInfo,
 ];
 
 apiRoutes.forEach((route) =>
