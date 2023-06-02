@@ -73,13 +73,21 @@ const addRentHandler = async (req: Request, res: Response) =>
 
             const rent = await prisma.rent.create({
                 data: {
-                    customerId,
-                    carId,
+                    rentedBy: { connect: { id: customerId } },
+                    car: { connect: { id: carId } },
                     rentDate,
                     returnDate,
                     price: price,
                 },
             });
+
+            await prisma.car.update({
+                where: { id: carId },
+                data: {
+                    isAvailable: false,
+                },
+            });
+
             return {
                 rent,
             };
