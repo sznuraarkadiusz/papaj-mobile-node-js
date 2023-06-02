@@ -1,5 +1,5 @@
 export const dateFormats = {
-    default: "DD-MM-YYYY",
+    default: "YYYY-MM-DD",
 };
 
 export const countDaysBetweenDates = (
@@ -13,7 +13,7 @@ export const countDaysBetweenDates = (
     const end = new Date(endDate);
 
     // Oblicz różnicę w dniach
-    return Math.round(Math.abs((start.getTime() - end.getTime()) / oneDay));
+    return Math.ceil(Math.abs((start.getTime() - end.getTime()) / oneDay));
 };
 
 export const dateCompare = (date1: string, date2: string): number => {
