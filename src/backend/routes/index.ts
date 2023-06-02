@@ -38,6 +38,7 @@ const apiRoutes = [
     reservationInfo,
     addRent,
     editRent,
+    deleteCar,
     infoRent,
 ];
 
