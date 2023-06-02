@@ -14,14 +14,10 @@ import {
 const addRentValidators = [
     authorize,
     isAdminMiddleware,
-    body("customerId").not().isEmpty(),
-    body("customerId").isInt({ min: 1 }),
-    body("carId").not().isEmpty(),
-    body("carId").isInt({ min: 1 }),
-    body("rentDate").not().isEmpty(),
-    body("rentDate").isDate({ format: dateFormats.default }),
-    body("returnDate").not().isEmpty(),
-    body("returnDate").isDate({ format: dateFormats.default }),
+    body("customerId").isInt({ min: 1 }).not().isEmpty(),
+    body("carId").isInt({ min: 1 }).not().isEmpty(),
+    body("rentDate").isDate({ format: dateFormats.default }).not().isEmpty(),
+    body("returnDate").isDate({ format: dateFormats.default }).not().isEmpty(),
 ];
 
 const addRentHandler = async (req: Request, res: Response) =>
@@ -67,6 +63,12 @@ const addRentHandler = async (req: Request, res: Response) =>
                     message: "Wybrany samochód nie istnieje w bazie.",
                     isCustomError: true,
                 } as TCustomError;
+            } else if (car.isAvailable === false) {
+                throw {
+                    status: StatusCodes.CONFLICT,
+                    message: "Wybrany samochód jest niedostępny.",
+                    isCustomError: true,
+                } as TCustomError;
             } else {
                 price = car.price * rentDays;
             }
@@ -96,7 +98,7 @@ const addRentHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "post",
-    path: "/api/rent/add",
+    path: "/api/rent",
     validators: addRentValidators,
     handler: addRentHandler,
 } as TRoute;

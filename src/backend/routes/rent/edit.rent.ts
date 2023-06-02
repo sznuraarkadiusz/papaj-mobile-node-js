@@ -25,6 +25,10 @@ const editRentHandler = async (req: Request, res: Response) =>
                 where: { id: rentId },
             });
 
+            const car = await prisma.car.findUnique({
+                where: { id: carId },
+            });
+
             if (!existingRent) {
                 throw {
                     isCustomError: true,
@@ -33,11 +37,25 @@ const editRentHandler = async (req: Request, res: Response) =>
                 } as TCustomError;
             }
 
+            if (!car) {
+                throw {
+                    isCustomError: true,
+                    status: StatusCodes.CONFLICT,
+                    message: "Nie znaleziono samochodu o podanym id.",
+                } as TCustomError;
+            } else if (car.isAvailable === false) {
+                throw {
+                    isCustomError: true,
+                    status: StatusCodes.CONFLICT,
+                    message: "Samochód o podanym id nie jest dostępny.",
+                } as TCustomError;
+            }
+
             const updatedRent = await prisma.rent.update({
                 where: { id: rentId },
                 data: {
-                    customerId,
-                    carId,
+                    rentedBy: { connect: { id: customerId } },
+                    car: { connect: { id: carId } },
                     price,
                     rentDate,
                     returnDate,
@@ -50,7 +68,7 @@ const editRentHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "put",
-    path: "/api/rent/edit/:id",
+    path: "/api/rent/:id",
     validators: editRentValidators,
     handler: editRentHandler,
 } as TRoute;
