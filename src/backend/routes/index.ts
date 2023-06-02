@@ -17,6 +17,7 @@ import editUser from "./user/edit.user";
 import addRent from "./rent/add.rent";
 import editRent from "./rent/edit.rent";
 import infoRent from "./rent/info.rent";
+import listRent from "./rent/list.rent";
 
 const router = express.Router();
 
@@ -40,6 +41,7 @@ const apiRoutes = [
     editRent,
     deleteCar,
     infoRent,
+    listRent,
 ];
 
 apiRoutes.forEach((route) =>
