@@ -30,7 +30,9 @@ const getCarInfoHandler = async (req: Request, res: Response) =>
                     isCustomError: true,
                 } as TCustomError;
             } else {
-                averageRate = carInfo.rate / carInfo.numberOfRates;
+                carInfo.numberOfRates === 0
+                    ? (averageRate = 0)
+                    : (averageRate = carInfo.rate / carInfo.numberOfRates);
                 car = {
                     id: carInfo.id,
                     brand: carInfo.brand,
