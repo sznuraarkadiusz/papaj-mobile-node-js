@@ -37,8 +37,8 @@ const editReservationHandler = async (req: Request, res: Response) =>
             const updatedReservation = await prisma.reservation.update({
                 where: { reservationId: reservationId },
                 data: {
-                    userId,
-                    carId,
+                    reservedBy: { connect: { id: userId } },
+                    car: { connect: { id: carId } },
                     reservationDate,
                     reservationReturnDate,
                 },
@@ -50,7 +50,7 @@ const editReservationHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "put",
-    path: "/api/reservation/edit/:id",
+    path: "/api/reservation/:id",
     validators: editReservationValidators,
     handler: editReservationHandler,
 } as TRoute;

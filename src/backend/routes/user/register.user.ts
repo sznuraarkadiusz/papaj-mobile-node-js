@@ -11,16 +11,11 @@ const SALT = (process.env.PASSWORD_SALT as string) ?? "XYZ";
 const SECRET = (process.env.PASSWORD_SECRET as string) ?? "XYZ";
 
 const registrationValidators = [
-    body("name").not().isEmpty(),
-    body("name").isString(),
-    body("surname").not().isEmpty(),
-    body("surname").isString(),
+    body("name").isString().not().isEmpty(),
+    body("surname").isString().not().isEmpty(),
     body("email").isEmail(),
-    body("email").not().isEmpty(),
-    body("password").not().isEmpty(),
-    body("password").isString(),
-    body("phone").not().isEmpty(),
-    body("phone").isString(),
+    body("password").isString().not().isEmpty(),
+    body("phone").isString().not().isEmpty(),
 ];
 
 const registrationHandler = async (req: Request, res: Response) =>

@@ -41,7 +41,7 @@ const addCarHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "post",
-    path: "/api/car/add",
+    path: "/api/car",
     validators: addCarValidators,
     handler: addCarHandler,
 } as TRoute;

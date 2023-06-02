@@ -20,7 +20,7 @@ const getReservationListHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "get",
-    path: "/api/reservation/list",
+    path: "/api/reservations",
     validators: [],
     handler: getReservationListHandler,
 } as TRoute;

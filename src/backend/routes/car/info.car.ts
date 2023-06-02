@@ -30,7 +30,7 @@ const getCarInfoHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "get",
-    path: "/api/car/info/:id",
+    path: "/api/car/:id",
     validators: getCarInfoValidators,
     handler: getCarInfoHandler,
 } as TRoute;

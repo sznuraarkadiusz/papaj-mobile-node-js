@@ -60,7 +60,7 @@ const deleteCarHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "delete",
-    path: "/api/car/delete/:id",
+    path: "/api/car/:id",
     validators: deleteCarValidators,
     handler: deleteCarHandler,
 } as TRoute;

@@ -20,7 +20,7 @@ const getCarListHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "get",
-    path: "/api/car/list",
+    path: "/api/cars",
     validators: [],
     handler: getCarListHandler,
 } as TRoute;
