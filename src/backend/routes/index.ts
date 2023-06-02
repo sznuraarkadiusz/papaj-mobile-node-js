@@ -18,6 +18,7 @@ import addRent from "./rent/add.rent";
 import editRent from "./rent/edit.rent";
 import infoRent from "./rent/info.rent";
 import listRent from "./rent/list.rent";
+import displayCurrency from "./currency/display.currency";
 
 const router = express.Router();
 
@@ -42,6 +43,7 @@ const apiRoutes = [
     deleteCar,
     infoRent,
     listRent,
+    displayCurrency
 ];
 
 apiRoutes.forEach((route) =>
