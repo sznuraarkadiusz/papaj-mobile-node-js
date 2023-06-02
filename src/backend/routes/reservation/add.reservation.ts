@@ -4,10 +4,17 @@ import { StatusCodes } from "http-status-codes";
 import { prisma } from "../../database";
 import { TRoute } from "../types";
 import { handleRequest, TCustomError } from "../../utils/request.utils";
+import { dateFormats } from "../../utils/date.utils";
 
 const addReservationValidators = [
-    body("reservationDate").not().isEmpty(),
-    body("reservationReturnDate").not().isEmpty(),
+    body("reservationDate")
+        .not()
+        .isEmpty()
+        .isDate({ format: dateFormats.default }),
+    body("reservationReturnDate")
+        .not()
+        .isEmpty()
+        .isDate({ format: dateFormats.default }),
     body("userId").not().isEmpty(),
     body("carId").not().isEmpty(),
 ];
@@ -23,8 +30,8 @@ const addReservationHandler = async (req: Request, res: Response) =>
                 req.body;
             const reservation = await prisma.reservation.create({
                 data: {
-                    userId,
-                    carId,
+                    reservedBy: { connect: { id: userId } },
+                    car: { connect: { id: carId } },
                     reservationDate,
                     reservationReturnDate,
                 },
@@ -54,7 +61,7 @@ const addReservationHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "post",
-    path: "/api/reservation/add",
+    path: "/api/reservation",
     validators: addReservationValidators,
     handler: addReservationHandler,
 } as TRoute;

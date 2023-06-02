@@ -44,7 +44,7 @@ const deleteReservationHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "delete",
-    path: "/api/reservation/delete/:id",
+    path: "/api/reservation/:id",
     validators: deleteReservationValidators,
     handler: deleteReservationHandler,
 } as TRoute;

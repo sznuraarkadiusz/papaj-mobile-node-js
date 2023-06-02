@@ -32,7 +32,7 @@ const getReservationInfoHandler = async (req: Request, res: Response) =>
 
 export default {
     method: "get",
-    path: "/api/reservation/info/:id",
+    path: "/api/reservation/:id",
     validators: getReservationInfoValidators,
     handler: getReservationInfoHandler,
 } as TRoute;
