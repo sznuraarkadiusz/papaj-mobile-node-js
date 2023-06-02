@@ -16,6 +16,7 @@ import getCarInfo from "./car/info.car";
 import editUser from "./user/edit.user";
 import addRent from "./rent/add.rent";
 import editRent from "./rent/edit.rent";
+import infoRent from "./rent/info.rent";
 
 const router = express.Router();
 
@@ -37,6 +38,7 @@ const apiRoutes = [
     reservationInfo,
     addRent,
     editRent,
+    infoRent,
 ];
 
 apiRoutes.forEach((route) =>
