@@ -3,12 +3,10 @@ import { StatusCodes } from "http-status-codes";
 import { param } from "express-validator";
 import { prisma } from "../../database";
 import { TRoute } from "../types";
-import { handleRequest } from "../../utils/request.utils";
+import { handleRequest, TCustomError } from "../../utils/request.utils";
+import { TCarInfo } from "./types.car";
 
-const getCarInfoValidators = [
-    param("id").not().isEmpty(),
-    param("id").isInt({ min: 1 }),
-];
+const getCarInfoValidators = [param("id").isInt({ min: 1 }).not().isEmpty()];
 
 const getCarInfoHandler = async (req: Request, res: Response) =>
     handleRequest({
@@ -18,12 +16,36 @@ const getCarInfoHandler = async (req: Request, res: Response) =>
         responseFailStatus: StatusCodes.BAD_REQUEST,
         execute: async () => {
             const carId = Number(req.params.id);
-
+            let averageRate: number;
             const carInfo = await prisma.car.findUnique({
                 where: { id: carId },
             });
+
+            let car: TCarInfo;
+
+            if (!carInfo) {
+                throw {
+                    status: StatusCodes.NOT_FOUND,
+                    message: "Nie znaleziono samochodu o podanym id",
+                    isCustomError: true,
+                } as TCustomError;
+            } else {
+                averageRate = carInfo.rate / carInfo.numberOfRates;
+                car = {
+                    id: carInfo.id,
+                    brand: carInfo.brand,
+                    model: carInfo.model,
+                    year: carInfo.productionYear,
+                    color: carInfo.color,
+                    price: carInfo.price,
+                    isAvailable: carInfo.isAvailable,
+                    averageRate: averageRate,
+                };
+            }
+            car.averageRate = averageRate;
+
             return {
-                carInfo,
+                info: car,
             };
         },
     });
