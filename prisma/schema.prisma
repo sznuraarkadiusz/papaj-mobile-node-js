@@ -34,8 +34,8 @@ model Rent {
   car        Car      @relation(fields: [carId], references: [id])
   carId      Int
   price      Float
-  rentDate   DateTime
-  returnDate DateTime
+  rentDate   String
+  returnDate String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   deletedAt  DateTime @default(now())
@@ -63,8 +63,8 @@ model Reservation {
   userId                Int
   car                   Car      @relation(fields: [carId], references: [id])
   carId                 Int
-  reservationDate       DateTime
-  reservationReturnDate DateTime
+  reservationDate       String
+  reservationReturnDate String
   createdAt             DateTime @default(now())
   updatedAt             DateTime @updatedAt
   deletedAt             DateTime @default(now())
