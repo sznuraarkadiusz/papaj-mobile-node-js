@@ -5,7 +5,11 @@ import { prisma } from "../../database";
 import { TRoute } from "../types";
 import { handleRequest, TCustomError } from "../../utils/request.utils";
 import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
-import { countDaysBetweenDates, dateFormats } from "../../utils/date.utils";
+import {
+    countDaysBetweenDates,
+    dateCompare,
+    dateFormats,
+} from "../../utils/date.utils";
 
 const addRentValidators = [
     authorize,
@@ -29,16 +33,37 @@ const addRentHandler = async (req: Request, res: Response) =>
         execute: async () => {
             const { customerId, carId, rentDate, returnDate } = req.body;
 
+            const customer = await prisma.user.findUnique({
+                where: { id: customerId },
+            });
+
+            if (!customer) {
+                throw {
+                    status: StatusCodes.BAD_REQUEST,
+                    message: "Wybrany klient nie istnieje w bazie.",
+                    isCustomError: true,
+                } as TCustomError;
+            }
+
             const car = await prisma.car.findUnique({
                 where: { id: carId },
             });
+
+            if (dateCompare(rentDate, returnDate) === 1) {
+                throw {
+                    status: StatusCodes.BAD_REQUEST,
+                    message:
+                        "Data zwrotu nie może być wcześniejsza niż data wynajmu.",
+                    isCustomError: true,
+                } as TCustomError;
+            }
 
             const rentDays = countDaysBetweenDates(rentDate, returnDate);
             let price: number;
 
             if (!car) {
                 throw {
-                    status: StatusCodes.BAD_REQUEST,
+                    status: StatusCodes.CONFLICT,
                     message: "Wybrany samochód nie istnieje w bazie.",
                     isCustomError: true,
                 } as TCustomError;
