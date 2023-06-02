@@ -14,6 +14,7 @@ import reservationInfo from "./reservation/info.reservation";
 import userInfo from "./user/info.user";
 import getCarInfo from "./car/info.car";
 import editUser from "./user/edit.user";
+import displayCurrency from "./currency/display.currency";
 
 const router = express.Router();
 
@@ -33,6 +34,7 @@ const apiRoutes = [
     reservationEdit,
     reservationList,
     reservationInfo,
+    displayCurrency
 ];
 
 apiRoutes.forEach((route) =>

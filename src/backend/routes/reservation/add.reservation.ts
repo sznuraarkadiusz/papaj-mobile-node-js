@@ -51,7 +51,6 @@ const addReservationHandler = async (req: Request, res: Response) =>
             };
         },
     });
-
 export default {
     method: "post",
     path: "/api/reservation/add",
