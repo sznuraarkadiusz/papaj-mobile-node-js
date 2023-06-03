@@ -6,5 +6,5 @@ export type TCarInfo = {
     color: string;
     price: number;
     isAvailable: boolean;
-    averageRate: number;
+    averageRate?: number;
 };
