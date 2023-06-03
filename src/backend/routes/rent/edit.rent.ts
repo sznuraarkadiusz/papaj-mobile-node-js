@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { param } from "express-validator";
+import { body, param } from "express-validator";
 import { StatusCodes } from "http-status-codes";
 import { prisma } from "../../database";
 import { TRoute } from "../types";
@@ -10,6 +10,9 @@ const editRentValidators = [
     authorize,
     isAdminMiddleware,
     param("id").isInt({ min: 1 }),
+    body("carId").isInt({ min: 1 }),
+    body("customerId").isInt({ min: 1 }),
+    body("price").isFloat({ min: 0 }),
 ];
 
 const editRentHandler = async (req: Request, res: Response) =>
