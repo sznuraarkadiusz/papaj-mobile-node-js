@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { param } from "express-validator";
+import { body, param } from "express-validator";
 import { StatusCodes } from "http-status-codes";
 import { prisma } from "../../database";
 import { TRoute } from "../types";
@@ -10,6 +10,13 @@ const editCarValidators = [
     authorize,
     isAdminMiddleware,
     param("id").isInt({ min: 1 }),
+    body("brand").isString(),
+    body("model").isString(),
+    body("color").isString(),
+    body("productionYear").isInt({ min: 2015, max: 2023 }),
+    body("price").isInt({ min: 0 }),
+    body("isAvailable").isBoolean(),
+    body("rate").isInt({ min: 1, max: 5 }),
 ];
 
 const editCarHandler = async (req: Request, res: Response) =>
