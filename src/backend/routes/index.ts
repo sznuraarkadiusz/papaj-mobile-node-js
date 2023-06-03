@@ -44,6 +44,7 @@ const apiRoutes = [
     deleteCar,
     infoRent,
     listRent,
+
 ];
 
 apiRoutes.forEach((route) =>
