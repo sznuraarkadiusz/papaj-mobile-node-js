@@ -4,6 +4,10 @@ import { TRoute } from "../types";
 import { handleRequest } from "../../utils/request.utils";
 import axios from "axios";
 
+interface CurrencyRate {
+    code: string;
+}
+
 const displayCurrencyHandler = async (req: Request, res: Response) =>
     handleRequest({
         req,
@@ -11,26 +15,20 @@ const displayCurrencyHandler = async (req: Request, res: Response) =>
         responseSuccessStatus: StatusCodes.OK,
         responseFailStatus: StatusCodes.INTERNAL_SERVER_ERROR,
         execute: async () => {
-            const { waluta } = req.params;
+            const response = await axios.get("http://api.nbp.pl/api/exchangerates/tables/A");
+            const currencyRates: CurrencyRate[] = response.data[0].rates;
 
-            const response = await axios.get(`http://api.nbp.pl/api/exchangerates/tables/A`);
-            const currencyRates = response.data[0].rates;
+            const filteredRates = currencyRates.filter(rate => {
+                return rate.code === "USD" || rate.code === "EUR" || rate.code === "GBP";
+            });
 
-            const currency = currencyRates.find((rate: any) => rate.code === waluta.toUpperCase());
-
-            if (!currency) {
-                return {
-                    error: "Nie znaleziono informacji dla podanej waluty.",
-                };
-            }
-
-            return currency;
+            return filteredRates;
         },
     });
 
 export default {
     method: "get",
-    path: "/api/currency/:waluta",
+    path: "/api/currency",
     validators: [],
     handler: displayCurrencyHandler,
 } as TRoute;
