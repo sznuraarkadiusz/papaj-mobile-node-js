@@ -5,6 +5,7 @@ import { prisma } from "../../database";
 import { TRoute } from "../types";
 import { handleRequest } from "../../utils/request.utils";
 import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
+import { date } from "../../utils/date.utils";
 
 const addCarValidators = [
     authorize,
@@ -12,8 +13,11 @@ const addCarValidators = [
     body("brand").not().isEmpty(),
     body("model").not().isEmpty(),
     body("color").not().isEmpty(),
-    body("productionYear").not().isEmpty(),
-    body("price").not().isEmpty(),
+    body("productionYear")
+        .isInt({ min: 2015, max: date.getFullYear() })
+        .not()
+        .isEmpty(),
+    body("price").isFloat({ min: 0 }).not().isEmpty(),
 ];
 
 const addCarHandler = async (req: Request, res: Response) =>

@@ -5,6 +5,7 @@ import { prisma } from "../../database";
 import { TRoute } from "../types";
 import { handleRequest, TCustomError } from "../../utils/request.utils";
 import { authorize, isAdminMiddleware } from "../../utils/middleware.utils";
+import { date } from "../../utils/date.utils";
 
 const editCarValidators = [
     authorize,
@@ -13,7 +14,7 @@ const editCarValidators = [
     body("brand").isString(),
     body("model").isString(),
     body("color").isString(),
-    body("productionYear").isInt({ min: 2015, max: 2023 }),
+    body("productionYear").isInt({ min: 2015, max: date.getFullYear() }),
     body("price").isInt({ min: 0 }),
     body("isAvailable").isBoolean(),
     body("rate").isInt({ min: 1, max: 5 }),

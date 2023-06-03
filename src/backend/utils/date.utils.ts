@@ -31,3 +31,5 @@ export const dateCompare = (date1: string, date2: string): number => {
         return 0;
     }
 };
+
+export const date = new Date();
