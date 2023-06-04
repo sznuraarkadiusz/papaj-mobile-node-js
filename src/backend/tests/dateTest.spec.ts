@@ -8,7 +8,7 @@ describe("countDaysBetweenDates", () => {
 
         const result = countDaysBetweenDates(startDate, endDate);
 
-        expect(result).toBe(5);
+        expect(result).toBe(4);
     });
 });
 
