@@ -16,7 +16,7 @@ const getRentInfoHandler = async (req: Request, res: Response) =>
         execute: async () => {
             const rentId = Number(req.params.id);
 
-            const rentInfo = await prisma.car.findUnique({
+            const rentInfo = await prisma.rent.findUnique({
                 where: { id: rentId },
             });
             return {
