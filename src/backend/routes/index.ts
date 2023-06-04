@@ -43,6 +43,7 @@ const apiRoutes = [
     deleteCar,
     infoRent,
     listRent,
+    displayCurrency,
 ];
 
 apiRoutes.forEach((route) =>

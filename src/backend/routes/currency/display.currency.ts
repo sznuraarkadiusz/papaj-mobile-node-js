@@ -15,14 +15,20 @@ const displayCurrencyHandler = async (req: Request, res: Response) =>
         responseSuccessStatus: StatusCodes.OK,
         responseFailStatus: StatusCodes.INTERNAL_SERVER_ERROR,
         execute: async () => {
-            const response = await axios.get("http://api.nbp.pl/api/exchangerates/tables/A");
+            const response = await axios.get(
+                "http://api.nbp.pl/api/exchangerates/tables/A",
+            );
             const currencyRates: CurrencyRate[] = response.data[0].rates;
 
-            const filteredRates = currencyRates.filter(rate => {
-                return rate.code === "USD" || rate.code === "EUR" || rate.code === "GBP";
+            const filteredRates = currencyRates.filter((rate) => {
+                return (
+                    rate.code === "USD" ||
+                    rate.code === "EUR" ||
+                    rate.code === "GBP"
+                );
             });
 
-            return filteredRates;
+            return { filteredRates };
         },
     });
 
